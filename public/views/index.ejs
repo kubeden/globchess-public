@@ -1,0 +1,51 @@
+<head>
+    <%- include ('components/head.ejs') %>
+</head>
+<body class="w-full text-center justify-center items-center h-screen bg-neutral-900">
+
+    <!-- this is the authentication page -->
+
+
+    <div class="flex flex-col h-full items-center justify-center">
+        <img src="assets/img/logo.png" class="" width="100" alt="">
+        <h2 class="text-white text-4xl md:text-5xl font-black tracking-widest pt-4 pb-4">GLOBCHESS</h2>
+        <!-- <p class="text-white italic text-xl md:text-xl pb-6 pt-2 md:py-4">World's largest chess game</p> -->
+        <div id="emailLogin" class="pb-8 flex flex-col">
+            <!-- email password login inputfields and button-->
+            <input type="email" id="email" class="bg-neutral-300 px-4 py-2 text-black font-bold rounded-md text-base w-80 focus:bg-white" placeholder="Email">
+            <input type="password" id="password" class="mt-1 bg-neutral-300 px-4 py-2 text-black font-bold rounded-md text-base w-80 focus:bg-white" placeholder="Password">
+            <button id="loginEmail" class="mt-4 bg-neutral-800 px-4 py-2 text-white font-bold rounded-md text-base w-80">Login</button>
+            <span class="text-sm italic text-neutral-600 pt-3">Don't have an account? <a href="/register" class="text-neutral-500">register now</a></span>
+        </div>
+        <div id="login_div" class="main-div flex flex-col gap-2 w-80">
+            <h2 class="text-white text-2xl md:text-3xl font-bold tracking-wide mb-4">Or</h2>
+            <!-- <button id="linkGoogleMobile" class="bg-gray-100 px-4 py-4 text-black font-bold rounded-md text-base w-full">Login with<span class="ps-2 fa-brands fa-google"></span></button> -->
+            
+            <button id="loginBtnX" class="bg-black px-4 py-4 text-white font-bold rounded-md text-base w-full">Login with <span class="ps-2 fa-brands fa-x-twitter"></span></button>
+        </div>
+    </div>
+
+
+
+    <div id="loginFailedAlert" class="hidden fixed bottom-0 right-0 md:bottom-5 md:right-5 w-full md:w-auto flex items-center p-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Login Failed!</span> Email and/or password are incorrect.
+        </div>
+    </div>
+
+
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/obfuscated/authConfig.js" type="module" defer></script>
+
+    <script type="module">
+        function _0x1c50(){const _0x1478cf=['hidden','href','9199Kqkdas','removeClass','3380967beqizZ','#loginFailedAlert','Error\x20during\x20login:','/game','138TKAXWF','user','471CVBXSH','loginEmail','loginBtnX','error','188KehpnX','click','addClass','getElementById','then','45NHyAai','email','log','10482717raQdGA','linkTwitter','10080032Rkunpf','preventDefault','location','value','User\x20logged\x20in:','84102eAeaSJ','addEventListener','26976520obDApu'];_0x1c50=function(){return _0x1478cf;};return _0x1c50();}const _0x5db373=_0x1caf;(function(_0x330352,_0x6ed6af){const _0x39dc91=_0x1caf,_0x5e3e51=_0x330352();while(!![]){try{const _0x5ec2d3=parseInt(_0x39dc91(0x1c5))/0x1*(parseInt(_0x39dc91(0x1cb))/0x2)+-parseInt(_0x39dc91(0x1cd))/0x3*(-parseInt(_0x39dc91(0x1d1))/0x4)+-parseInt(_0x39dc91(0x1d6))/0x5*(parseInt(_0x39dc91(0x1c0))/0x6)+-parseInt(_0x39dc91(0x1d9))/0x7+-parseInt(_0x39dc91(0x1db))/0x8+parseInt(_0x39dc91(0x1c7))/0x9+parseInt(_0x39dc91(0x1c2))/0xa;if(_0x5ec2d3===_0x6ed6af)break;else _0x5e3e51['push'](_0x5e3e51['shift']());}catch(_0x4e165a){_0x5e3e51['push'](_0x5e3e51['shift']());}}}(_0x1c50,0xcb0f9));import{twitterLogin,linkAccount,user,signInWithEmailAndPassword,auth}from'./assets/js/authConfig.js';const loginBtnX=document[_0x5db373(0x1d4)](_0x5db373(0x1cf)),linkTwitter=document[_0x5db373(0x1d4)](_0x5db373(0x1da));function _0x1caf(_0x8178e3,_0x31eb17){const _0x1c501e=_0x1c50();return _0x1caf=function(_0x1caf03,_0x344e4a){_0x1caf03=_0x1caf03-0x1bc;let _0x2425b5=_0x1c501e[_0x1caf03];return _0x2425b5;},_0x1caf(_0x8178e3,_0x31eb17);}loginBtnX[_0x5db373(0x1c1)]('click',()=>{twitterLogin();}),document['getElementById'](_0x5db373(0x1ce))[_0x5db373(0x1c1)](_0x5db373(0x1d2),function(_0x31b657){const _0x3dc19f=_0x5db373;_0x31b657[_0x3dc19f(0x1bc)]();const _0x216d8f=document[_0x3dc19f(0x1d4)](_0x3dc19f(0x1d7))[_0x3dc19f(0x1be)],_0x3c701d=document[_0x3dc19f(0x1d4)]('password')['value'];signInWithEmailAndPassword(auth,_0x216d8f,_0x3c701d)[_0x3dc19f(0x1d5)](_0x152c32=>{const _0x125694=_0x3dc19f;console[_0x125694(0x1d8)](_0x125694(0x1bf),_0x152c32[_0x125694(0x1cc)]),window[_0x125694(0x1bd)][_0x125694(0x1c4)]=_0x125694(0x1ca);})['catch'](_0x3cbdb2=>{const _0x4a80fe=_0x3dc19f;console[_0x4a80fe(0x1d0)](_0x4a80fe(0x1c9),_0x3cbdb2),$(_0x4a80fe(0x1c8))[_0x4a80fe(0x1c6)]('hidden'),setTimeout(()=>{const _0x31d2c7=_0x4a80fe;$(_0x31d2c7(0x1c8))[_0x31d2c7(0x1d3)](_0x31d2c7(0x1c3));},0x1388);});});
+
+    </script>
+    
+</body>
+</html>

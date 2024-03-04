@@ -1,0 +1,42 @@
+<head>
+    <%- include ('components/head.ejs') %>
+</head>
+<body class="w-full text-center justify-center items-center h-screen bg-neutral-950">
+
+    <!-- this is the registraion page -->
+
+
+    <div class="flex flex-col h-full items-center justify-center">
+        <img src="assets/img/logo.png" class="" width="100" alt="">
+        <h2 class="text-white text-4xl md:text-5xl font-black tracking-widest pt-4 pb-4">GLOBCHESS</h2>
+        <!-- <p class="text-white italic text-xl md:text-xl pb-6 pt-2 md:py-4">World's largest chess game</p> -->
+        <div id="registerDiv" class="pb-8 flex flex-col">
+            <!-- email password for register -->
+            <form id="registerForm" class="flex flex-col" method="POST" action="/register">
+                <input type="email" id="email" class="bg-neutral-300 px-4 py-2 text-black font-bold rounded-md text-base w-80 focus:bg-white" placeholder="Email">
+                <input type="password" id="password" class="mt-1 bg-neutral-300 px-4 py-2 text-black font-bold rounded-md text-base w-80 focus:bg-white" placeholder="Password">
+                <input type="confirmPassword" id="confirmPassword" class="mt-1 bg-neutral-300 px-4 py-2 text-black font-bold rounded-md text-base w-80 focus:bg-white" placeholder="Confirm Password *">
+                
+                <!-- button for register -->
+                <button id="registerBtn" class="bg-green-600 text-white font-bold rounded-md text-base w-80 py-2 mt-4">Register Now</button>
+            </form>
+            
+            
+            <span class="text-sm italic text-neutral-600 pt-3">Already have an account? <a href="/" class="text-neutral-500">Login Now</a></span>
+        </div>
+    </div>
+
+
+
+
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/obfuscated/authConfig.js" type="module" defer></script>
+
+<script type="module">
+    function _0x32c8(_0x3ae6d2,_0x1315ca){const _0x3e262e=_0x3e26();return _0x32c8=function(_0x32c872,_0xecf59e){_0x32c872=_0x32c872-0x16c;let _0x26151b=_0x3e262e[_0x32c872];return _0x26151b;},_0x32c8(_0x3ae6d2,_0x1315ca);}const _0x21ccf7=_0x32c8;(function(_0x2b0b27,_0x5526df){const _0x502a11=_0x32c8,_0x14039c=_0x2b0b27();while(!![]){try{const _0x11c9b0=-parseInt(_0x502a11(0x180))/0x1+parseInt(_0x502a11(0x17e))/0x2*(-parseInt(_0x502a11(0x17b))/0x3)+parseInt(_0x502a11(0x17a))/0x4+-parseInt(_0x502a11(0x175))/0x5+-parseInt(_0x502a11(0x16f))/0x6+parseInt(_0x502a11(0x174))/0x7+parseInt(_0x502a11(0x171))/0x8*(parseInt(_0x502a11(0x17d))/0x9);if(_0x11c9b0===_0x5526df)break;else _0x14039c['push'](_0x14039c['shift']());}catch(_0x390a30){_0x14039c['push'](_0x14039c['shift']());}}}(_0x3e26,0xf0bc9));import{auth,createUserWithEmailAndPassword}from'./assets/js/firebaseInit.js';function _0x3e26(){const _0x2b8e22=['preventDefault','Error\x20during\x20registration:','8420468UgphRl','5345925IvxDKb','value','getElementById','registerForm','submit','5805396RToBwR','97827gSEzSu','error','10113174rvTOHo','86GuEMOm','location','47814tAchcH','message','log','email','then','catch','8378412mtXjJE','addEventListener','16tzSOMK'];_0x3e26=function(){return _0x2b8e22;};return _0x3e26();}document[_0x21ccf7(0x177)](_0x21ccf7(0x178))[_0x21ccf7(0x170)](_0x21ccf7(0x179),function(_0x3a9483){const _0x4b1cbe=_0x21ccf7;_0x3a9483[_0x4b1cbe(0x172)]();const _0x3d1cdd=document['getElementById'](_0x4b1cbe(0x16c))[_0x4b1cbe(0x176)],_0x475eaf=document['getElementById']('password')['value'],_0x1c7508=document[_0x4b1cbe(0x177)]('confirmPassword')[_0x4b1cbe(0x176)];_0x475eaf===_0x1c7508?createUserWithEmailAndPassword(auth,_0x3d1cdd,_0x475eaf)[_0x4b1cbe(0x16d)](_0x236ce3=>{const _0x10b546=_0x4b1cbe;console[_0x10b546(0x182)]('User\x20registered:',_0x236ce3['user']),window[_0x10b546(0x17f)]['href']='/';})[_0x4b1cbe(0x16e)](_0xb19aec=>{const _0x333f7e=_0x4b1cbe;console[_0x333f7e(0x17c)](_0x333f7e(0x173),_0xb19aec),alert(_0xb19aec[_0x333f7e(0x181)]);}):alert('Passwords\x20do\x20not\x20match.');});
+</script>
+
+    
+</body>
+</html>

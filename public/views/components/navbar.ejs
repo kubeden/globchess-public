@@ -1,0 +1,300 @@
+<nav class="bg-neutral-900 w-full xl:py-4 py-4 text-neutral-100 px-4 grid grid-cols-3 border-b-2 border-neutral-800">
+    <div class="h-full flex justify-start items-center">
+        <button class="fa-solid fa-bars text-neutral-200 xl:text-xl text-2xl font-black px-4" type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example"></button>
+    </div>
+
+    <div class="w-full text-center flex items-center justify-center">
+        <a href="/game" class="flex justify-center items-center">
+            <h2 class="font-bold tracking-wide xl:text-2xl text-2xl text-neutral-100">GLOB</h2>
+            <img class="mx-2" src="assets/img/logo.png" width="40" alt="">
+            <h2 class="font-bold tracking-wide xl:text-2xl text-2xl text-neutral-100">CHESS</h2>
+        </a>
+    </div>
+
+    <div class="w-full text-end px-4 justify-end items-right hidden xl:flex">
+        <button data-modal-target="pastGamesModal" data-modal-toggle="pastGamesModal" class="ps-4 xl:text-2xl text2xl font-bold self-center" type="button">
+            <span class="fa fa-clock-rotate-left"></span>
+        </button>
+        <button data-modal-target="rulesModal" data-modal-toggle="rulesModal" class="ps-4 xl:text-2xl text-2xl font-bold self-center" type="button">
+            <span class="fa fa-question"></span>
+        </button>
+        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="px-4 xl:text-2xl text-2xl font-bold self-center" type="button">
+            <span class="fa fa-chart-simple"></span>
+        </button>
+        <a href="https://x.com/kubeden" target="_blank" class="bg-neutral-900 border-2 border-neutral-800 rounded-xl px-6 py-2 text-neutral-300 hidden xl:block">Follow on X</a>
+        <div class="flex px-2 gap-3 ps-4">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex items-center" type="button">
+                <a class="self-center" id="userImage"></a>
+                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+            </button>
+
+            <div id="dropdown" class="pt-4 pr-2 hidden max-w-md w-full" aria-labelledby="dropdownDefaultButton" style="z-index: 101">
+                <div id="userInfoDiv" class="w-full text-start bg-neutral-800 px-4 py-4 rounded-md border border-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-sm opacity-100 transition text-xl px-8 py-8 text-neutral-500">
+                    <h2 class="font-bold text-neutral-400">Available Moves</h2>
+                    <div class="h-0.5 bg-neutral-700 w-full my-2"></div>
+                
+                    <div class="flex gap-2 text-center items-center justify-center mt-4 py-4">
+                        <img src="assets/img/token.png" width="45" height="45" alt="">
+                        <span id="userTokens" class="self-center text-2xl">5</span>
+                    </div>
+                    <!-- <div>
+                        <button data-modal-target="paymentModal" data-modal-toggle="paymentModal" class="w-full px-4 py-4 bg-neutral-900 rounded-md mt-4 hover:bg-neutral-700">Buy Tokens</button>
+                    </div> -->
+
+                    <div class="flex flex-col justify-center items-center w-full pt-6 gap-3">
+                        <!-- link google account -->
+                        <!-- <button id="linkGoogle" class="bg-gray-100 px-4 py-4 text-black font-bold rounded-md text-base w-full hover:bg-neutral-400">Link <span class="fa-brands fa-google"></span> account</button> -->
+                        
+                        <!-- link twitter account -->
+                        <!-- <button id="syncTwitter" class="bg-black px-4 py-4 text-white font-bold rounded-md text-base w-full hover:bg-neutral-800">Link <span class="fa-brands fa-x-twitter"></span> account</button> -->
+                        
+                        <!-- logout button -->
+                        <button id="logoutBtn" class="bg-red-500 text-neutral-100 px-4 py-4 font-bold w-full relative transition rounded-md text-base hover:bg-red-600">Logout</button>
+                    </div>
+                </div>                    
+            </div>
+        </div>
+        <!-- <span id="userName" class="hidden"></span> -->
+    </div>
+
+    <div class="w-full text-end px-4 justify-end items-right flex xl:hidden">
+        <div class="flex gap-3">
+            <button id="dropdownDefaultButton2" data-dropdown-toggle="dropdown2" class="inline-flex items-center" type="button">
+                <a class="self-center ps-2" id="userImage2"></a>
+                <!-- <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg> -->
+            </button>
+
+            <div id="dropdown2" class="pt-0 hidden" aria-labelledby="dropdownDefaultButton2" style="z-index: 100; position: fixed; top: 40px; left: 0px; width: 100vw;">
+                <div id="userInfoDiv" class="text-start bg-neutral-800 px-4 py-4 rounded-md border border-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-sm opacity-100 transition text-xl px-6 py-6 text-neutral-500">
+                    <h2 class="font-bold text-neutral-400">Available Moves</h2>
+                    <div class="h-0.5 bg-neutral-700 w-full my-2"></div>
+                
+                    <div class="flex gap-2 text-start items-start justify-center mt-4">
+                        <img src="assets/img/token.png" width="45" height="45" alt="">
+                        <span id="userTokensMobile" class="self-center text-2xl"></span>
+                    </div>
+                    <!-- <div class="w-full">
+                        <button data-modal-target="paymentModal" data-modal-toggle="paymentModal" class="w-full px-4 py-4 bg-neutral-900 rounded-md mt-4 hover:bg-neutral-700">Buy Tokens</button>
+                    </div> -->
+                    
+                    <div class="flex justify-center items-center w-full pt-8">
+                        <button data-modal-target="pastGamesModal" data-modal-toggle="pastGamesModal" class="ps-4 xl:text-2xl text2xl font-bold self-center" type="button">
+                            <span class="fa fa-clock-rotate-left"></span>
+                        </button>
+                        <button data-modal-target="rulesModal" data-modal-toggle="rulesModal" class="ps-4 xl:text-2xl text-2xl font-bold self-center" type="button">
+                            <span class="fa fa-question"></span>
+                        </button>
+                        <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="px-4 xl:text-2xl text-2xl font-bold self-center" type="button">
+                            <span class="fa fa-chart-simple"></span>
+                        </button>
+                    </div>
+
+                    <div class="flex flex-col justify-center items-center w-full pt-6 gap-3">
+                        <!-- link google account -->
+                        <!-- <button id="linkGoogleMobile" class="bg-gray-100 px-4 py-4 text-black font-bold rounded-md text-base w-full">Link <span class="fa-brands fa-google"></span> account</button> -->
+                        
+                        <!-- link twitter account -->
+                        <!-- <button id="syncTwitterMobile" class="bg-black px-4 py-4 text-white font-bold rounded-md text-base w-full">Link <span class="fa-brands fa-x-twitter"></span> account</button> -->
+                        
+                        <!-- logout button -->
+                        <button id="logoutBtnMobile" class="bg-red-500 text-neutral-100 px-4 py-4 font-bold w-full relative transition rounded-md text-base">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span id="userName" class="hidden"></span>
+    </div>
+</nav>
+
+<div id="drawer-example" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-neutral-900" tabindex="-1" aria-labelledby="drawer-label">
+    <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+     <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+   </svg>Info</h5>
+    <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-neutral-600 dark:hover:text-white" >
+       <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+       </svg>
+       <span class="sr-only">Close menu</span>
+    </button>
+       
+    <h2 class="text-xl font-black text-neutral-300 pb-2">About the creator</h2>
+    <p class="text-sm text-gray-500 dark:text-gray-400">👋 Hey there. My name is Dennis and I go by Kubeden online. If you like what I built here and you feel like chatting, feel free to do so on my <a class="text-blue-500" href="https://x.com/kubeden">x.com/kubeden</a> profile!</p>
+
+    <div class="w-full h-0.5 bg-neutral-800 my-4"></div>
+
+    <h2 class="text-xl font-black text-neutral-300 pb-2">About the app</h2>
+    <p class="text-sm text-gray-500 dark:text-gray-400">🌎 The chess game you see on your screen is available to any one in the world! Inspired by Wordle, I aimed to create a similar experience but with chess.</p>
+
+    <div class="w-full h-0.5 bg-neutral-800 my-4"></div>
+
+    <div id="lastGameDiv" class="text-start bg-neutral-800 px-4 py-4 rounded-md border border-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-sm opacity-80 transition text-xl px-8 py-8 text-neutral-500">
+        <h2 class="font-bold text-neutral-400">LAST GAME</h2>
+        <!-- <div class="h-0.5 bg-neutral-700 w-full my-2"></div> -->
+    
+        <div id="lastGameContent" class=""></div>
+        <!-- last move -->
+    </div>
+
+    <div class="hidden mt-4" id="lastMoveContent">
+        <div id="lastMoveDiv" class="text-start bg-neutral-800 px-4 py-4 rounded-md border border-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-sm opacity-80 transition text-xl px-8 py-8 text-neutral-500">
+            <h2 class="font-bold text-neutral-400">LAST MOVE</h2>
+            <div class="h-0.5 bg-neutral-700 w-full my-2"></div>
+        
+            <div>
+                <p id="lastMove"></p>
+                <p id="lastMoveMadeBy"><a href="#" class="text-neutral-500"></a></p>
+                <p id="lastMoveDate"></p>
+            </div>
+        </div>                    
+    </div>
+ </div>
+
+
+     <!-- payment modal -->
+     <!-- <div id="paymentModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full border-4 border-neutral-800 bg-neutral-900 rounded-xl" style="z-index: 101;">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <div class="relative rounded-lg shadow bg-neutral-900 border-2 border-neutral-800">
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-neutral-800">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-neutral-100">
+                        Buy Move Tokens
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-100" data-modal-hide="paymentModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="flex flex-col items-center justify-center w-full h-full py-4 text-neutral-100 bg-neutral-900" style="max-height: 400px;">
+                        <img src="assets/img/token.png" class="px-4 py-4 text-center self-center" width="150">
+                        <div id="paymentModalBody" class="flex-grow w-full max-w-full overflow-auto rounded-md">
+                            <button data-amount="1" data-price-id="price_1Ok5R3D41r71UjhtDvR6UpO0" class="bg-neutral-800 text-neutral-100 px-6 py-4 font-bold w-full relative transition rounded-md">Buy 1 Token ( $1 )</button>
+                            <button data-amount="3" data-price-id="price_1Ok5ReD41r71UjhtSJDJpFyH" class="bg-neutral-800 text-neutral-100 px-6 py-4 font-bold w-full relative transition rounded-md my-2">Buy 3 Tokens ( $3 )</button>
+                            <button data-amount="7" data-price-id="price_1Ok5SRD41r71UjhtONj6bqeE" class="bg-neutral-800 text-neutral-100 px-6 py-4 font-bold w-full relative transition rounded-md">Buy 7 Tokens ( $7 )</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="rulesModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full border-4 border-neutral-800 bg-neutral-900 rounded-xl" style="z-index: 101;">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-neutral-900 border-2 border-neutral-800">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b border-neutral-800 rounded-t">
+                    <h3 class="text-xl font-bold text-gray-300">
+                        Rules & Info
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-100" data-modal-hide="rulesModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="text-gray-300 px-4 py-4">
+                        <h2 class="text-2xl font-black">Globchess</h2>
+                        <p class="text-sm">World's largest chess game</p>
+                        <div class="w-full h-1 bg-neutral-800 my-2"></div>
+                        <h3 class="text-xl font-bold">How to play</h3>
+                        <p>Make a move by dragging and dropping the pieces. You can also use the buttons to make a move or reset a move.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Rules</h3>
+                        <p>Standard chess rules apply. The game is played in a turn-based manner. You can only make a move when it's your turn.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Winning</h3>
+                        <p>There are no winners or losers in this game. It's a collaborative game where everyone in the world contributes to the game.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Payment</h3>
+                        <p>There is a small fee to make a move. This is to prevent spam and to keep the game fair for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pastGamesModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full border-4 border-neutral-800 bg-neutral-900 rounded-xl" style="z-index: 101;">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-neutral-900 border-2 border-neutral-800">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b border-neutral-800 rounded-t">
+                    <h3 class="text-xl font-bold text-gray-300">
+                        View Past Games
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-100" data-modal-hide="pastGamesModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="text-gray-300 px-4 py-4 grid grid-cols-2 gap-4 games-container">
+
+                    </div>
+                    <div class="col-span-2">
+                        <!-- pagination -->
+                        <div class="flex justify-center items-center pt-4 text-neutral-100">
+                            <button id="prevGame" class="px-6 py-4 font-bold relative transition mr-1">Prev</button>
+                            <span id="pageGame" class="bg-neutral-900 px-4 py-2 text-neutral-100 font-bold relative transition rounded-md">1</span>
+                            <button id="nextGame" class="px-6 py-4 font-bold relative transition mr-1">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full border-4 border-neutral-800 bg-neutral-900 rounded-xl" style="z-index: 101;">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative rounded-lg shadow bg-neutral-900 border-2 border-neutral-800">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-neutral-800">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-neutral-100">
+                        Game History
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-100" data-modal-hide="default-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div id="game-log" class="flex flex-col items-center justify-center w-full py-4 text-neutral-100 bg-neutral-900" style="max-height: 800px;">
+                        <div class="flex-grow w-full max-w-full overflow-auto rounded-md border-8 border-neutral-800">
+                            <table id="movesTable" class="w-full text-black" style="min-height: 50vh;">
+                                <thead class="bg-neutral-900 text-neutral-100 border-b-8 border-neutral-900">
+                                    <tr>
+                                        <th class="px-4 py-4">Move</th>
+                                        <th class="px-4 py-4">Twitter/X Handle</th>
+                                        <th class="px-4 py-4">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="pagination" class="flex justify-center items-center pt-4 text-neutral-100">
+                            <button id="prevMove" class="px-6 py-4 font-bold relative transition mr-1">Prev</button>
+                            <span id="page" class="bg-neutral-900 px-4 py-2 text-neutral-100 font-bold relative transition rounded-md">1</span>
+                            <button id="nextMove" class="px-6 py-4 font-bold relative transition mr-1">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

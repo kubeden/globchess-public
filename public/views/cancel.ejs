@@ -1,0 +1,124 @@
+<head>
+    <%- include ('components/head.ejs') %>
+</head>
+<body class="bg-neutral-900">
+
+    <nav class="bg-neutral-900 w-full py-4 text-neutral-100 px-4 grid grid-cols-3 border-b-2 border-neutral-800">
+        <div class="h-full flex justify-start items-center">
+            <button class="fa-solid fa-bars text-neutral-200 text-xl font-black px-4" type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example" aria-controls="drawer-example"></button>
+        </div>
+
+        <div class="w-full text-center flex items-center justify-center">
+            <a href="/game" class="flex justify-center items-center">
+                <h2 class="font-bold tracking-wide text-2xl text-neutral-100">GLOB</h2>
+                <img class="mx-2" src="assets/img/logo.png" width="40" alt="">
+                <h2 class="font-bold tracking-wide text-2xl text-neutral-100">CHESS</h2>
+            </a>
+        </div>
+
+        <div class="w-full text-end px-4 justify-end items-right flex">
+            <button data-modal-target="rulesModal" data-modal-toggle="rulesModal" class="px-4 text-2xl font-bold self-center" type="button">
+                <span class="fa fa-question"></span>
+            </button>
+            <a href="https://x.com/kubeden" target="_blank" class="bg-neutral-900 border-2 border-neutral-800 rounded-xl px-6 py-2 text-neutral-300">Follow on X</a>
+            <a class="ps-4 self-center" id="userImage"></a>
+            <span id="userName" class="hidden"></span>
+        </div>
+    </nav>
+
+    <main class="grid grid-cols-1 w-full text-center justify-center items-center bg-neutral-900 py-4 px-4" style="max-height: calc(100vh - 76px); height: calc(100vh - 150px);">
+
+        <!-- payment successful -->
+        <div class="flex flex-col justify-center items-center space-y-4 h-full">
+            <div class="w-20 h-20 bg-red-500 rounded-full flex justify-center items-center">
+                <span class="fa-solid fa-times text-4xl text-white"></span>
+            </div>
+            <h2 class="text-3xl font-bold text-neutral-300">🥹 Payment failed! 🥹</h2>
+            <p class="text-neutral-300">Redirecting you to the board . . .</p>
+            <a href="/game" class="bg-neutral-800 border-2 border-neutral-800 rounded-xl px-6 py-2 text-neutral-300">Click here if you are not redirected</a>
+        </div>
+
+    </main>
+
+    <div id="rulesModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full border-4 border-neutral-800 bg-neutral-900 rounded-xl">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-neutral-900 border-2 border-neutral-800">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b border-neutral-800 rounded-t">
+                    <h3 class="text-xl font-bold text-gray-300">
+                        Rules & Info
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-neutral-600 dark:hover:text-neutral-100" data-modal-hide="rulesModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <div class="text-gray-300 px-4 py-4">
+                        <h2 class="text-2xl font-black">Globchess</h2>
+                        <p class="text-sm">World's largest chess game</p>
+                        <div class="w-full h-1 bg-neutral-800 my-2"></div>
+                        <h3 class="text-xl font-bold">How to play</h3>
+                        <p>Make a move by dragging and dropping the pieces. You can also use the buttons to make a move or reset a move.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Rules</h3>
+                        <p>Standard chess rules apply. The game is played in a turn-based manner. You can only make a move when it's your turn.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Winning</h3>
+                        <p>There are no winners or losers in this game. It's a collaborative game where everyone in the world contributes to the game.</p>
+                        <div class="w-full h-1 bg-neutral-800 my-1"></div>
+                        <h3 class="text-xl font-bold">Payment</h3>
+                        <p>There is a small fee to make a move. This is to prevent spam and to keep the game fair for everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="drawer-example" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-neutral-900" tabindex="-1" aria-labelledby="drawer-label">
+        <h5 id="drawer-label" class="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg class="w-4 h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+         <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+       </svg>Info</h5>
+        <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example" class="text-gray-400 bg-transparent hover:bg-neutral-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-neutral-600 dark:hover:text-white" >
+           <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+           </svg>
+           <span class="sr-only">Close menu</span>
+        </button>
+           
+        <h2 class="text-xl font-black text-neutral-300 pb-2">About the creator</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400">👋 Hey there. My name is Dennis and I go by Kubeden online. If you like what I built here and you feel like chatting, feel free to do so on my <a class="text-blue-500" href="https://x.com/kubeden">x.com/kubeden</a> profile!</p>
+
+        <div class="w-full h-0.5 bg-neutral-800 my-4"></div>
+
+        <h2 class="text-xl font-black text-neutral-300 pb-2">About the app</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400">🌎 The chess game you see on your screen is available to any one in the world! Inspired by Wordle, I aimed to create a similar experience but with chess.</p>
+
+        <div class="w-full h-0.5 bg-neutral-800 my-4"></div>
+     </div>
+
+
+
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/payment.js" type="module" defer></script>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = '/game';
+        }, 5000);
+    
+        // No move registration is needed here.
+    </script>
+
+    <script type="module">
+        (function(_0x4d586f,_0x46a6f1){var _0x2474d7=_0x186a,_0x51a8ca=_0x4d586f();while(!![]){try{var _0x147e33=parseInt(_0x2474d7(0xe5))/0x1*(-parseInt(_0x2474d7(0xec))/0x2)+-parseInt(_0x2474d7(0xed))/0x3*(-parseInt(_0x2474d7(0xf0))/0x4)+-parseInt(_0x2474d7(0xe8))/0x5+parseInt(_0x2474d7(0xe2))/0x6+parseInt(_0x2474d7(0xe6))/0x7+parseInt(_0x2474d7(0xe1))/0x8+-parseInt(_0x2474d7(0xe3))/0x9*(parseInt(_0x2474d7(0xeb))/0xa);if(_0x147e33===_0x46a6f1)break;else _0x51a8ca['push'](_0x51a8ca['shift']());}catch(_0x107339){_0x51a8ca['push'](_0x51a8ca['shift']());}}}(_0x886e,0x76a74));import{auth}from'/assets/js/firebaseInit.js';auth['onAuthStateChanged'](function(_0x1acfb5){var _0x57a042=_0x186a;_0x1acfb5?(console['log'](_0x57a042(0xf1)),document['querySelector']('#userName')[_0x57a042(0xe4)]='@'+_0x1acfb5[_0x57a042(0xe9)],document[_0x57a042(0xef)](_0x57a042(0xe7))['innerHTML']='<img\x20src=\x22'+_0x1acfb5[_0x57a042(0xea)]+_0x57a042(0xee)):(console['log']('user\x20is\x20not\x20signed\x20in'),window[_0x57a042(0xf2)]['href']='/');});function _0x186a(_0x5e0de8,_0x3f52b5){var _0x886e76=_0x886e();return _0x186a=function(_0x186aa3,_0x18d081){_0x186aa3=_0x186aa3-0xe1;var _0x4618c3=_0x886e76[_0x186aa3];return _0x4618c3;},_0x186a(_0x5e0de8,_0x3f52b5);}function _0x886e(){var _0x4e852b=['location','6456712QzHUBs','3839478zuKBLo','221607MvnqeN','textContent','2552UslYGB','1354934vRlJal','#userImage','1467050JTNLke','displayName','photoURL','470lUGtfh','298QzBCKu','2029137lzgfJP','\x22\x20alt=\x22user\x20image\x22\x20class=\x22w-10\x20h-10\x20rounded-full\x20border-2\x20border-neutral-800\x22>','querySelector','4XYEBln','user\x20is\x20signed\x20in'];_0x886e=function(){return _0x4e852b;};return _0x886e();}
+    </script>
+    
+</body>
+</html>

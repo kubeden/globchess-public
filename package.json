@@ -1,0 +1,28 @@
+{
+  "name": "worldchessgame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stripe/firestore-stripe-payments": "^0.0.6",
+    "body-parser": "^1.20.2",
+    "chess.js": "^1.0.0-beta.7",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "firebase": "^10.8.0",
+    "firebase-admin": "^12.0.0",
+    "socket.io": "^4.7.4",
+    "stripe": "^14.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
